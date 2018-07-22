@@ -34,7 +34,7 @@ my %export = (
 	},
 );
 
-die "Invalid mode $mode" unless exists $export{$mode};
+die "Invalid mode $mode, available are: @{[keys %export]}\n" unless exists $export{$mode};
 
 for my $file (@ARGV) {
 	my ($sin, $sout, $serr); $serr = gensym;
