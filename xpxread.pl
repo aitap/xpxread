@@ -16,7 +16,7 @@ GetOptions(
 
 my %export = (
 	tsv => sub {
-		print((join "\t", qw(lat lon spd azm 0 0 sec gx gy gz)), "\n");
+		print((join "\t", qw(lon lat spd azm 0 0 sec gx gy gz)), "\n");
 		print((join "\t", @$_), "\n") for @_;
 	},
 	srt => sub {
@@ -26,8 +26,8 @@ my %export = (
 			printf "%02d:%02d:%02d,000 --> %02d:%02d:%02d,000\n",
 				$i/3600, $i%3600/60, $i%60, ($i+1)/3600, ($i+1)%3600/60, ($i+1)%60;
 			printf "%.4f%s %.4f%s; %g km/h; %.0f\N{DEGREE SIGN}; a=(%.2f, %.2f, %.2f) g\n\n",
-				$_->[0], $_->[0] >=0 ? 'N' : 'S',
-				$_->[1], $_->[1] >=0 ? 'E' : 'W',
+				$_->[1], $_->[1] >=0 ? 'N' : 'S',
+				$_->[0], $_->[0] >=0 ? 'E' : 'W',
 				@{$_}[2, 3, 7..9];
 			$i++;
 		}
