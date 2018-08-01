@@ -8,7 +8,7 @@ use Getopt::Long;
 use IPC::Open3;
 use Symbol 'gensym';
 
-my $mode = "tsv";
+my $mode = "srt";
 
 GetOptions(
 	'mode=s' => \$mode,
